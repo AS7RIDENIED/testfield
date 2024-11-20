@@ -10,11 +10,4 @@ metadata:
 next:
   description: ''
 ---
-[block:embed]
-{
-  "url": "https://lolz.live",
-  "provider": "https://lolz.live",
-  "href": "https://lolz.live",
-  "typeOfEmbed": "jsfiddle"
-}
-[/block]
+<Embed url="https://lolz.live" provider="lolz.live" href="https://lolz.live" typeOfEmbed="jsfiddle" title="undefined" />
