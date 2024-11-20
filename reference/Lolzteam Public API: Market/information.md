@@ -14,13 +14,13 @@ next:
 
 **API free libraries**
 
-- [Node.js](https://github.com/NztForum/node-lzt) 
-- [Python](https://github.com/AS7RIDENIED/Lolzteam_Python_Api)
-- [C#](https://github.com/fanidamn/LolzMarketAPI)
+* [Node.js](https://github.com/NztForum/node-lzt) 
+* [Python](https://github.com/AS7RIDENIED/Lolzteam_Python_Api)
+* [C#](https://github.com/fanidamn/LolzMarketAPI)
 
 ## Rate limit
 
-20 requests per minute (3 seconds delay between per request).  
+20 requests per minute (3 seconds delay between per request).\
 If you exceed the limit, the response code 429 will be returned to you.
 
 ## Authorization
