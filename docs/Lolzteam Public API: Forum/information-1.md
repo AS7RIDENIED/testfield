@@ -14,9 +14,9 @@ next:
 
 ## API free libraries
 
-- [Node.js](https://github.com/NztForum/node-lzt) 
-- [Python](https://github.com/AS7RIDENIED/Lolzteam_Python_Api)
-- [C#](https://github.com/fanidamn/LolzMarketAPI)
+* [Node.js](https://github.com/NztForum/node-lzt) 
+* [Python](https://github.com/AS7RIDENIED/Lolzteam_Python_Api)
+* [C#](https://github.com/fanidamn/LolzMarketAPI)
 
 ## Rate limit
 
@@ -32,19 +32,19 @@ The subscription system uses the [WebSub   protocol](https://github.com/w3c/webs
 
 Any client can generate one time token (OTT) using existing token. The format for OTT is as follow:
 
-**user_id,timestamp,once,client_id**
+**user\_id,timestamp,once,client\_id**
 
-With **user_id** is the ID of authenticated user; **timestamp** is the unix timestamp for OTT expire time, the OTT will work as long as indicated by **timestamp** or by token expire date, whatever comes first; **client_id** is the client ID; **once** is md5 of a concentration of **user_id**, **timestamp**, a valid existing token and the client secret. Example code to generate an OTT:
+With **user\_id** is the ID of authenticated user; **timestamp** is the unix timestamp for OTT expire time, the OTT will work as long as indicated by **timestamp** or by token expire date, whatever comes first; **client\_id** is the client ID; **once** is md5 of a concentration of **user\_id**, **timestamp**, a valid existing token and the client secret. Example code to generate an OTT:
 
 **Configuration**
 
-- TTL of access token: 180 days
-- TTL of authorization code: 30 seconds
-- TTL of refresh token: 180 days
-- Authorization URI: **/oauth/authorize** (Recommended)
-- Access token exchange URI: **/oauth/token** (Disabled)
-- Token param name: **oauth_token**
-- Token bearer header name: **Bearer**
+* TTL of access token: 180 days
+* TTL of authorization code: 30 seconds
+* TTL of refresh token: 180 days
+* Authorization URI: **/oauth/authorize** (Recommended)
+* Access token exchange URI: **/oauth/token** (Disabled)
+* Token param name: **oauth\_token**
+* Token bearer header name: **Bearer**
 
 ## Discoverability
 
@@ -58,10 +58,10 @@ All API requests accept **locale** parameter to switch user facing messages to s
 
 ### Fields filtering
 
-For API method with resource data like a forum or a thread, the data can be filtered to get interested fields only. The general format is "key.sub_key.deep_key" if you want to include/exclude a specific field. The including rules take precedence over excluding ones.
+For API method with resource data like a forum or a thread, the data can be filtered to get interested fields only. The general format is "key.sub\_key.deep\_key" if you want to include/exclude a specific field. The including rules take precedence over excluding ones.
 
-- **fields_include**: comma-separated list of fields of a resource. For additional fields, it is possible to use wildcard (**\***) to include all default fields before specifying additional ones.
-- **fields_exclude**: comma-separated list of fields of a resource to exclude in the response. Since r2016062001, it is possible to use wildcard as a prefix (e.g. "\*.key") to exclude the field everywhere.
+* **fields\_include**: comma-separated list of fields of a resource. For additional fields, it is possible to use wildcard (**\***) to include all default fields before specifying additional ones.
+* **fields\_exclude**: comma-separated list of fields of a resource to exclude in the response. Since r2016062001, it is possible to use wildcard as a prefix (e.g. "\*.key") to exclude the field everywhere.
 
 ### Resource ordering
 
@@ -69,24 +69,24 @@ For API method with list of resources, the resources can be ordered differently 
 
 ### Encryption
 
-For sensitive information like password, encryption can be used to increase data security. For all encryption with key support, the **client_secret** will be used as the key. List of supported encryptions:
+For sensitive information like password, encryption can be used to increase data security. For all encryption with key support, the **client\_secret** will be used as the key. List of supported encryptions:
 
-- **aes128**: AES 128 bit encryption (mode: ECB, padding: PKCS#7). Because of algorithm limitation, the binary md5 hash of key will be used instead of the key itself.
+* **aes128**: AES 128 bit encryption (mode: ECB, padding: PKCS#7). Because of algorithm limitation, the binary md5 hash of key will be used instead of the key itself.
 
 ### Headers
 
-- **Api-Bb-Code-Chr: !youtube**: Replace multimedia tags (except youtube) in bb code html with **tools/chr** link. Since forum-2018100301.
-- **Api-Username-Inline-Style**: Return rich username for **username** fields. Since forum-2018052101.
+* **Api-Bb-Code-Chr: !youtube**: Replace multimedia tags (except youtube) in bb code html with **tools/chr** link. Since forum-2018100301.
+* **Api-Username-Inline-Style**: Return rich username for **username** fields. Since forum-2018052101.
 
 ## Subscriptions
 
 List of supported topics:
 
-- **user_x** (x is the user_id of the interested user): receives ping when user data is inserted, updated or deleted. The registered callback will be included in GET **/users/:userId** as parameter **subscription_callback**.
+* **user\_x** (x is the user\_id of the interested user): receives ping when user data is inserted, updated or deleted. The registered callback will be included in GET **/users/:userId** as parameter **subscription\_callback**.
 
-- **user_notification_x** (x is the user_id of the interested user): receives ping when user gets a new notification. Notification data will be included in the ping. The registered callback will be included in GET **/notifications** as parameter **subscription_callback**.
+* **user\_notification\_x** (x is the user\_id of the interested user): receives ping when user gets a new notification. Notification data will be included in the ping. The registered callback will be included in GET **/notifications** as parameter **subscription\_callback**.
 
-- **thread_post_x** (x is the thread_id of the interested thread): receives ping when a post in the thread is inserted, updated or deleted. The registered callback will be included in GET **/posts?thread_id=x** as parameter **subscription_callback**.
+* **thread\_post\_x** (x is the thread\_id of the interested thread): receives ping when a post in the thread is inserted, updated or deleted. The registered callback will be included in GET **/posts?thread\_id=x** as parameter **subscription\_callback**.
 
 For supported resources, two **Link** HTTP headers will be included. It is recommended to check for these headers before issuing subscribe request because webmaster can disable some or all types of subscriptions.
 
