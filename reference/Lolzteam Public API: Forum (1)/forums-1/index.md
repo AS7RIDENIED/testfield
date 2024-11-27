@@ -1,4 +1,0 @@
----
-title: Forums
-hidden: false
----
